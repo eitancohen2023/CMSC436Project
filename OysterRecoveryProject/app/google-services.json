@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "176777832725",
+    "project_id": "oysterrecoveryproject-d3a5b",
+    "storage_bucket": "oysterrecoveryproject-d3a5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176777832725:android:1d3b57db0c3b0cf30ae11c",
+        "android_client_info": {
+          "package_name": "com.example.oysterrecoveryproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176777832725-2g6sjc44eg4g9nov4fqjot6l1e705ohs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIHJ6B0JzYK-xqAYOyV1QNoOTtzw0GL70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176777832725-2g6sjc44eg4g9nov4fqjot6l1e705ohs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
