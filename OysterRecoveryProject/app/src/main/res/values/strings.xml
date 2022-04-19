@@ -5,4 +5,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="confirm_password">ConfirmPassword</string>
+    <string name="truckDriverCheckBox">Click here if you are a truck driver</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="truck_driver">Truck Driver</string>
 </resources>

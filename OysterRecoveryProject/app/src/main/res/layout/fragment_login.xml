@@ -27,6 +27,7 @@
         android:layout_marginTop="11dp"/>
 
     <EditText
+        android:id="@+id/login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/username"
@@ -36,6 +37,7 @@
     </EditText>
 
     <EditText
+        android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password"
@@ -54,19 +56,19 @@
             android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="40dp"
-            android:backgroundTint="@color/black"/>
+            android:backgroundTint="@color/black"
+            android:text="Login" />
 
         <Button
             android:id="@+id/buttonRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_toLeftOf="@id/buttonLogin"
             android:layout_marginEnd="40dp"
-            android:backgroundTint="@color/black"/>
+            android:layout_toLeftOf="@id/buttonLogin"
+            android:backgroundTint="@color/black"
+            android:text="Register" />
 
     </RelativeLayout>
     </LinearLayout>

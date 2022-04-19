@@ -27,6 +27,7 @@
             android:layout_marginTop="11dp"/>
 
         <EditText
+            android:id="@+id/register_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
@@ -36,6 +37,7 @@
         </EditText>
 
         <EditText
+            android:id="@+id/register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -46,6 +48,7 @@
         </EditText>
 
         <EditText
+            android:id="@+id/register_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
@@ -55,13 +58,36 @@
             android:inputType="textPassword">
         </EditText>
 
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/choice1"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <RadioButton
+                android:id="@+id/choice1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/restaurant"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+            <RadioButton
+                android:id="@+id/choice2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/truck_driver"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        </RadioGroup>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp">
 
             <Button
-                android:id="@+id/buttonLoginRegister"
+                android:id="@+id/back_to_login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Back to Login"
@@ -70,11 +96,11 @@
                 android:backgroundTint="@color/black"/>
 
             <Button
-                android:id="@+id/buttonRegister"
+                android:id="@+id/register_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
-                android:layout_toLeftOf="@id/buttonLoginRegister"
+                android:layout_toLeftOf="@id/back_to_login_button"
                 android:backgroundTint="@color/black"
                 android:text="Register" />
 
