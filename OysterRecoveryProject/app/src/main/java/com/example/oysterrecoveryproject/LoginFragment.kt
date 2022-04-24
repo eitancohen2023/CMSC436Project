@@ -107,6 +107,12 @@ class LoginFragment : Fragment() {
             }
         }
     }
-
-
 }
+
+// I used the class slides, the firebase API at https://firebase.google.com/docs/auth/android/google-signin
+// and this YouTube video https://www.youtube.com/watch?v=2aML6wfUGGA to setup the Login, Register,
+// and Dashboard fragments, the FragNav interface, and the MainActivity.
+// I also used this stack overflow solution to help figure out how to handle registration and login
+// for multiple types of users
+// https://stackoverflow.com/questions/46372780/android-firebase-different-types-of-users-login
+// Michael Orlando 4/24/22
