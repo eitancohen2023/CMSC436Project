@@ -131,7 +131,8 @@ class RestaurantDashboard : Fragment() {
             updateCount(RESET_CODE)
         }
         mSetCount.setOnClickListener{
-            TODO("Not yet implemented")
+//            TODO("Not yet implemented")
+            Toast.makeText(context, "Needs Implementation", Toast.LENGTH_LONG).show()
         }
 
         //Connects and displays restaurant name and shell count from firebase database
