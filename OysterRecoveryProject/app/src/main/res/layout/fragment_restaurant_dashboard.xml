@@ -101,24 +101,45 @@
         android:layout_height="80dp"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="125dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="100dp"
         android:background="@drawable/rounded_button"
         android:text="Reset"
         android:textSize="16dp"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/setCount"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+    <TextView
+        android:id="@+id/setCountTitle"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="125dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="185dp"
+        android:text="Enter Amount Below"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/setCount"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="130dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textSize="24dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitCount"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="130dp"
+        android:layout_marginLeft="100dp"
         android:background="@drawable/rounded_button"
-        android:text="Set Count"
+        android:text="Submit"
         android:textSize="16dp"
         />
-
 
     <Button
         android:id="@+id/logoutButton"

@@ -1,21 +1,21 @@
 package com.example.oysterrecoveryproject
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.runBlocking
-import org.w3c.dom.Text
 
 class RestaurantDashboard : Fragment() {
     private lateinit var mAddOneButton: Button
@@ -26,8 +26,9 @@ class RestaurantDashboard : Fragment() {
     private lateinit var mSubTenButton: Button
     private lateinit var mDisplayCount: TextView
     private lateinit var mResetCount: TextView
-    private lateinit var mSetCount: TextView
     private lateinit var mDisplayName: TextView
+    private lateinit var mSetCount: EditText
+    private lateinit var mSubmitCount: Button
     private var mAuth: FirebaseAuth? = null
     private lateinit var database: DatabaseReference
     private lateinit var shellCount: String
@@ -47,6 +48,7 @@ class RestaurantDashboard : Fragment() {
         //Set&Reset Buttons
         mResetCount = view.findViewById(R.id.resetCount)
         mSetCount = view.findViewById(R.id.setCount)
+        mSubmitCount = view.findViewById(R.id.submitCount)
 
         //Increase Buttons
         mAddOneButton = view.findViewById(R.id.addOneButton)
@@ -130,9 +132,11 @@ class RestaurantDashboard : Fragment() {
         mResetCount.setOnClickListener{
             updateCount(RESET_CODE)
         }
-        mSetCount.setOnClickListener{
-//            TODO("Not yet implemented")
-            Toast.makeText(context, "Needs Implementation", Toast.LENGTH_LONG).show()
+        mSubmitCount.setOnClickListener{
+            hideKeyboard(requireContext(), view)
+            var text = mSetCount.text.toString()
+            setCount(text)
+            mSetCount.setText("")
         }
 
         //Connects and displays restaurant name and shell count from firebase database
@@ -151,6 +155,18 @@ class RestaurantDashboard : Fragment() {
         val newString = newCount.toString()
         val user = mAuth!!.currentUser!!.uid
         database.child(user).child("shells").setValue(newString)
+    }
+
+    private fun setCount(x : String) {
+        val user = mAuth!!.currentUser!!.uid
+        database.child(user).child("shells").setValue(x)
+    }
+
+    //Function was created with help from:
+    //https://stackoverflow.com/questions/41790357/close-hide-the-android-soft-keyboard-with-kotlin
+    private fun hideKeyboard(context: Context, view: View) {
+        val imm: InputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     companion object {
