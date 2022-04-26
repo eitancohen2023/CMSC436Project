@@ -1,3 +1,5 @@
+![Oyster](/images/oysterBackground.jpg)
+
 CMSC436 Final Project - Checkpoint
 Authors: Michael Orlando, Jackson Styer, Eitan Cohen
 Concept
