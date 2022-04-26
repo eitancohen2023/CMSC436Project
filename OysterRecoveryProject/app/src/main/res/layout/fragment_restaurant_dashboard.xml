@@ -11,7 +11,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="0dp"
         android:gravity="center"
-        android:text="Temporary"
+        android:text=""
         android:textSize="32dp" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_marginLeft="105dp"
         android:background="@drawable/rounded_textview"
         android:gravity="center"
-        android:text="Temporary"
+        android:text=""
         android:textSize="64dp" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -44,7 +44,7 @@
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="325dp"
         android:background="@drawable/rounded_button"
-        android:text="+10"
+        android:text="+5"
         android:textSize="32dp"
         />
 
@@ -93,6 +93,30 @@
         android:background="@drawable/rounded_button"
         android:text="-10"
         android:textSize="32dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/resetCount"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="125dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Reset"
+        android:textSize="16dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/setCount"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="125dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Set Count"
+        android:textSize="16dp"
         />
 
 

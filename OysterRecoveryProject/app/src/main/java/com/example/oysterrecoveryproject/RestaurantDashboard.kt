@@ -25,6 +25,8 @@ class RestaurantDashboard : Fragment() {
     private lateinit var mSubFiveButton: Button
     private lateinit var mSubTenButton: Button
     private lateinit var mDisplayCount: TextView
+    private lateinit var mResetCount: TextView
+    private lateinit var mSetCount: TextView
     private lateinit var mDisplayName: TextView
     private var mAuth: FirebaseAuth? = null
     private lateinit var database: DatabaseReference
@@ -38,21 +40,32 @@ class RestaurantDashboard : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_restaurant_dashboard, container, false)
 
+        //TextViews for live counts
         mDisplayName = view.findViewById(R.id.restaurantName)
         mDisplayCount = view.findViewById(R.id.displayCount)
 
+        //Set&Reset Buttons
+        mResetCount = view.findViewById(R.id.resetCount)
+        mSetCount = view.findViewById(R.id.setCount)
+
+        //Increase Buttons
         mAddOneButton = view.findViewById(R.id.addOneButton)
         mAddFiveButton = view.findViewById(R.id.addFiveButton)
         mAddTenButton = view.findViewById(R.id.addTenButton)
 
+        //Decrease Buttons
         mSubOneButton = view.findViewById(R.id.subOneButton)
         mSubFiveButton = view.findViewById(R.id.subFiveButton)
         mSubTenButton = view.findViewById(R.id.subTenButton)
 
+        //Firebase connection
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("users")
+
+        //Temporarily assign TextViews
         shellCount = ""
         restName = ""
+
         view.setBackgroundResource(com.google.android.material.R.color.cardview_dark_background)
 
         view.findViewById<Button>(R.id.logoutButton).setOnClickListener {
@@ -60,9 +73,10 @@ class RestaurantDashboard : Fragment() {
             var navLogin = activity as FragNav
             navLogin.navigateFrag(LoginFragment(), addToStack = false)
         }
+
+        //Grab and set Shell Count
         fun initializeCount(): String {
-            val x = mAuth!!.currentUser
-            val user = x!!.uid
+            val user = mAuth!!.currentUser!!.uid
             database.child(user).get().addOnSuccessListener {
                 if(it.exists()){
                     val count = it.child("shells").value
@@ -76,9 +90,10 @@ class RestaurantDashboard : Fragment() {
             }
             return shellCount
         }
+
+        //Grab and set Restaurant Name
         fun initializeName(): String {
-            val x = mAuth!!.currentUser
-            val user = x!!.uid
+            val user = mAuth!!.currentUser!!.uid
             database.child(user).get().addOnSuccessListener {
                 if(it.exists()){
                     val name = it.child("name").value
@@ -92,8 +107,31 @@ class RestaurantDashboard : Fragment() {
             }
             return restName
         }
+
+        //Buttons for adding/subtracting shells
         mAddOneButton.setOnClickListener{
-            Toast.makeText(context, "Test", Toast.LENGTH_LONG).show()
+            updateCount(1)
+        }
+        mAddFiveButton.setOnClickListener{
+            updateCount(5)
+        }
+        mAddTenButton.setOnClickListener{
+            updateCount(10)
+        }
+        mSubOneButton.setOnClickListener{
+            updateCount(-1)
+        }
+        mSubFiveButton.setOnClickListener{
+            updateCount(-5)
+        }
+        mSubTenButton.setOnClickListener{
+            updateCount(-10)
+        }
+        mResetCount.setOnClickListener{
+            updateCount(RESET_CODE)
+        }
+        mSetCount.setOnClickListener{
+            TODO("Not yet implemented")
         }
 
         //Connects and displays restaurant name and shell count from firebase database
@@ -101,6 +139,21 @@ class RestaurantDashboard : Fragment() {
         initializeName()
 
         return view
+    }
+    //Updates the current shell count with specified value
+    private fun updateCount(x: Int) {
+        val currCount = shellCount.toInt()
+        var newCount = currCount + x
+        if(newCount < 0 || x == RESET_CODE) {
+            newCount = 0
+        }
+        val newString = newCount.toString()
+        val user = mAuth!!.currentUser!!.uid
+        database.child(user).child("shells").setValue(newString)
+    }
+
+    companion object {
+        val RESET_CODE = 2
     }
 
 
