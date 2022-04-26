@@ -6,11 +6,28 @@
     tools:context=".RestaurantDashboard">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:gravity="center"
+        android:text="Restaurant Dashboard" />
+
+    <TextView
+        android:id="@+id/displayCount"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Restaurant Dashboard"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="Temporary" />
+
+    <Button
+        android:id="@+id/addOneButon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_gravity="center|bottom"
+        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+        android:text="Add One Shell" />
 
     <Button
         android:id="@+id/logoutButton"

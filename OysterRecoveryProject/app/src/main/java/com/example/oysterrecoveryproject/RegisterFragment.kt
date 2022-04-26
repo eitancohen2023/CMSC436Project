@@ -101,8 +101,8 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    data class User(val email: String? = "", val password: String, private var type_: Int = 0){
-//                    val address: String? = "", val name: String?, val shells: Int = 0) {
+    data class User(val email: String? = "", val password: String, private var type_: Int = 0,
+                    val address: String? = "", val name: String? = "", val shells: Int = 0) {
         val type: Int get() = type_
     }
 
