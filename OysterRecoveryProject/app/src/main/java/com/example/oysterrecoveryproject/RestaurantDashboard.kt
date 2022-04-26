@@ -19,6 +19,11 @@ import org.w3c.dom.Text
 
 class RestaurantDashboard : Fragment() {
     private lateinit var mAddOneButton: Button
+    private lateinit var mAddFiveButton: Button
+    private lateinit var mAddTenButton: Button
+    private lateinit var mSubOneButton: Button
+    private lateinit var mSubFiveButton: Button
+    private lateinit var mSubTenButton: Button
     private lateinit var mDisplayCount: TextView
     private lateinit var mDisplayName: TextView
     private var mAuth: FirebaseAuth? = null
@@ -35,7 +40,15 @@ class RestaurantDashboard : Fragment() {
 
         mDisplayName = view.findViewById(R.id.restaurantName)
         mDisplayCount = view.findViewById(R.id.displayCount)
+
         mAddOneButton = view.findViewById(R.id.addOneButton)
+        mAddFiveButton = view.findViewById(R.id.addFiveButton)
+        mAddTenButton = view.findViewById(R.id.addTenButton)
+
+        mSubOneButton = view.findViewById(R.id.subOneButton)
+        mSubFiveButton = view.findViewById(R.id.subFiveButton)
+        mSubTenButton = view.findViewById(R.id.subTenButton)
+
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("users")
         shellCount = ""
@@ -47,7 +60,7 @@ class RestaurantDashboard : Fragment() {
             var navLogin = activity as FragNav
             navLogin.navigateFrag(LoginFragment(), addToStack = false)
         }
-        fun initialCount(): String {
+        fun initializeCount(): String {
             val x = mAuth!!.currentUser
             val user = x!!.uid
             database.child(user).get().addOnSuccessListener {
@@ -63,7 +76,7 @@ class RestaurantDashboard : Fragment() {
             }
             return shellCount
         }
-        fun initialName(): String {
+        fun initializeName(): String {
             val x = mAuth!!.currentUser
             val user = x!!.uid
             database.child(user).get().addOnSuccessListener {
@@ -80,15 +93,12 @@ class RestaurantDashboard : Fragment() {
             return restName
         }
         mAddOneButton.setOnClickListener{
-            initialCount()
+            Toast.makeText(context, "Test", Toast.LENGTH_LONG).show()
         }
 
-        initialCount()
-        initialName()
-
-
-
-
+        //Connects and displays restaurant name and shell count from firebase database
+        initializeCount()
+        initializeName()
 
         return view
     }

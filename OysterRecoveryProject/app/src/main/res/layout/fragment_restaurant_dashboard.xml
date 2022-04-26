@@ -25,14 +25,76 @@
         android:text="Temporary"
         android:textSize="64dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addOneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="80dp"
-        android:backgroundTint="@color/common_google_signin_btn_text_light_default"
-        android:text="Add One Shell" />
+        android:layout_marginBottom="325dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="+1"
+        android:textSize="32dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addFiveButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="325dp"
+        android:background="@drawable/rounded_button"
+        android:text="+10"
+        android:textSize="32dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addTenButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="325dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="+10"
+        android:textSize="32dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/subOneButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="225dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="-1"
+        android:textSize="32dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/subFiveButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="225dp"
+        android:background="@drawable/rounded_button"
+        android:text="-5"
+        android:textSize="32dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/subTenButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="225dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="-10"
+        android:textSize="32dp"
+        />
+
 
     <Button
         android:id="@+id/logoutButton"
