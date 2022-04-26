@@ -25,6 +25,6 @@ class TruckDriverDashboard : Fragment() {
 
         return view
     }
-
-
+// save for later
+//https://stackoverflow.com/questions/22246188/android-google-maps-draw-path-between-multiple-points
 }
