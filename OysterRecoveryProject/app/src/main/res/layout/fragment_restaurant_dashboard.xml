@@ -5,27 +5,32 @@
     android:layout_height="match_parent"
     tools:context=".RestaurantDashboard">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
+        android:id="@+id/restaurantName"
         android:layout_width="match_parent"
-        android:layout_height="370dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="0dp"
         android:gravity="center"
-        android:text="Restaurant Dashboard" />
+        android:text="Temporary"
+        android:textSize="32dp" />
 
     <TextView
         android:id="@+id/displayCount"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="105dp"
+        android:background="@drawable/rounded_textview"
         android:gravity="center"
-        android:text="Temporary" />
+        android:text="Temporary"
+        android:textSize="64dp" />
 
     <Button
-        android:id="@+id/addOneButon"
+        android:id="@+id/addOneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
         android:layout_gravity="center|bottom"
+        android:layout_marginBottom="80dp"
         android:backgroundTint="@color/common_google_signin_btn_text_light_default"
         android:text="Add One Shell" />
 
@@ -39,3 +44,8 @@
         android:text="Log Out" />
 
 </FrameLayout>
+
+<!--
+ Rounded Counter from
+ https://stackoverflow.com/questions/25203501/android-creating-a-circular-textview
+ -->
