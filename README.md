@@ -1,4 +1,4 @@
-![Oyster](/images/oysterBackground.jpg)
+![Oyster](/images/oysterBackground.jpg =100x20)
 
 CMSC436 Final Project - Checkpoint
 Authors: Michael Orlando, Jackson Styer, Eitan Cohen
