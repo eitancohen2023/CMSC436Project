@@ -81,7 +81,10 @@ class RestaurantDashboard : Fragment() {
             val user = mAuth!!.currentUser!!.uid
             database.child(user).get().addOnSuccessListener {
                 if(it.exists()){
-                    val count = it.child("shells").value
+                    var count = it.child("shells").value
+                    if (count == ""){
+                        count = 0
+                    }
                     shellCount = count.toString()
                     mDisplayCount.setText(shellCount)
                 }else{
