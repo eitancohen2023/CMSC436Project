@@ -6,11 +6,7 @@
     tools:context=".TruckDriverDashboard">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TRUCK DRIVER Dashboard"
-        android:gravity="center"/>
+
 
     <Button
         android:id="@+id/logoutButton"
@@ -20,5 +16,35 @@
         android:layout_gravity="center|bottom"
         android:backgroundTint="@color/black"
         android:text="Log Out" />
+
+    <TextView
+        android:id="@+id/restaurantsLeft"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp" />
+
+    <TextView
+        android:id="@+id/resturantDesc"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        />
+
+    <Button
+        android:id="@+id/nxtRestBttn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Get Next Location" />
+
+    <Button
+        android:id="@+id/goToMaps"
+        android:layout_gravity="center|top"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_height="wrap_content"
+        android:text="Go to Maps" />
 
 </FrameLayout>
