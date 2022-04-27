@@ -73,7 +73,7 @@ class RestaurantDashboard : Fragment() {
         view.findViewById<Button>(R.id.logoutButton).setOnClickListener {
             Firebase.auth.signOut()
             var navLogin = activity as FragNav
-            navLogin.navigateFrag(LoginFragment(), addToStack = false)
+            navLogin.navigateFrag(LoginFragment(), true)
         }
 
         //Grab and set Shell Count
