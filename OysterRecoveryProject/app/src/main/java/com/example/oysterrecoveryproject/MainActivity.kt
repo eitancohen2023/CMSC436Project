@@ -1,5 +1,6 @@
 package com.example.oysterrecoveryproject
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity(), FragNav {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    Toast.makeText(applicationContext, "Logged out", Toast.LENGTH_SHORT).show()
                 }
             })
         } else {

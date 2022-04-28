@@ -3,6 +3,7 @@ package com.example.oysterrecoveryproject
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ class LoginFragment : Fragment() {
     private lateinit var mPassword: EditText
     private var mAuth: FirebaseAuth? = null
     private lateinit var mloginButton: Button
+    private var mLogged: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +33,7 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_login, container, false)
 
+        mLogged = true
         mAuth = Firebase.auth
         mloginButton = view.findViewById(R.id.buttonLogin)
         mUsername = view.findViewById(R.id.login_username)
@@ -78,12 +81,21 @@ class LoginFragment : Fragment() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         when (dataSnapshot.child("type").value.toString()) {
                             "1" -> {
-                                Toast.makeText(context, "You are logged in as a restaurant!", Toast.LENGTH_SHORT).show()
+                                if(mLogged) {
+                                    mLogged = false
+                                    Toast.makeText(
+                                        context,
+                                        "You are logged in as a restaurant!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                                 var navDashboard = activity as FragNav
                                 navDashboard.navigateFrag(RestaurantDashboard(), true)
                             }
                             "2" -> {
-                                Toast.makeText(context, "You are logged in as a truck driver!", Toast.LENGTH_SHORT).show()
+                                if(mLogged){
+                                    Toast.makeText(context, "You are logged in as a truck driver!", Toast.LENGTH_SHORT).show()
+                                }
                                 var navDashboard = activity as FragNav
                                 navDashboard.navigateFrag(TruckDriverDashboard(), true)
                             }
