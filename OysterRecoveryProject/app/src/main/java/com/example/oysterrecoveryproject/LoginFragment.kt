@@ -96,7 +96,7 @@ class LoginFragment : Fragment() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
+                        Toast.makeText(context, "Logged out", Toast.LENGTH_SHORT).show()
                     }
                 })
             } else {
