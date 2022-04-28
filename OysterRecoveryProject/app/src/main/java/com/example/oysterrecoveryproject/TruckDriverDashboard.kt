@@ -47,12 +47,14 @@ class TruckDriverDashboard : Fragment() {
                 for(user in dataSnapshot.children) {
                     when (user.child("type").value.toString()) {
                         "1" -> {
-                            if (user.child("shells").value.toString().toInt() > 100) {
-                                val u = User(
-                                    user.child("address").value.toString(),
-                                    user.child("name").value.toString())
-                                userList.add(u)
-                                iter++
+                            if(user.child("shells").value != null){
+                                if (user.child("shells").value.toString().toInt() > 100) {
+                                    val u = User(
+                                        user.child("address").value.toString(),
+                                        user.child("name").value.toString())
+                                    userList.add(u)
+                                    iter++
+                                }
                             }
                         }
                         "2" -> {
