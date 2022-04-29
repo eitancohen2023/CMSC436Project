@@ -1,5 +1,6 @@
 package com.example.oysterrecoveryproject
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -23,6 +24,7 @@ class TruckDriverDashboard : Fragment() {
     private lateinit var database: DatabaseReference
     private var userList = ArrayList<User>()
     private lateinit var goToMapButt: Button
+    private var currUser: User? = null
 
 
 
@@ -65,6 +67,7 @@ class TruckDriverDashboard : Fragment() {
                         break
                     }
                 }
+                updateDescs()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -73,13 +76,17 @@ class TruckDriverDashboard : Fragment() {
         })
 
 
+
         getNxtRestBttn.setOnClickListener{
-            userList.removeAt(0)
-            updateDescs()
+                updateDescs()
         }
 
         goToMapButt.setOnClickListener{
-            sendToMaps(userList.get(0).address)
+            if(userList.isEmpty()){
+                sendToMaps("4330 Hartwick Rd, College Park, MD, 20740")
+            } else {
+                sendToMaps(currUser!!.address)
+            }
         }
 
         view.findViewById<Button>(R.id.logoutButton).setOnClickListener {
@@ -89,11 +96,22 @@ class TruckDriverDashboard : Fragment() {
         return view
     }
 
+    @SuppressLint("SetTextI18n")
+    fun setDropOff(){
+        val add = "4330 Hartwick Rd, College Park, MD, 20740"
+        resturantsLeft.text = "There are no more locations left! Go to drop off!"
+        resturantDesc.text = "Name: Drop off\nAddress: $add"
+    }
+
     // update all fields
     fun updateDescs() {
-        val user = userList.get(0)
-        resturantsLeft.text = "There are " + userList.size + "left!"
-        resturantDesc.text = "Name: " + user.name + "\n" + "Address: " + user.address
+        if (userList.isEmpty()) {
+            setDropOff()
+        } else {
+        currUser = userList.removeAt(0)
+        resturantsLeft.text = "There are " + userList.size + " left!"
+        resturantDesc.text = "Name: " + currUser!!.name + "\n" + "Address: " + currUser!!.address
+        }
     }
 
 
@@ -112,6 +130,8 @@ class TruckDriverDashboard : Fragment() {
     }
 
     data class User(val address:String,val name:String)
+
+
 // save for later
 //https://stackoverflow.com/questions/22246188/android-google-maps-draw-path-between-multiple-points
 }

@@ -18,6 +18,8 @@ class RegisterFragment : Fragment() {
     private lateinit var choice: RadioButton
     private lateinit var mUsername: EditText
     private lateinit var mPassword: EditText
+    private lateinit var mName: EditText
+    private lateinit var mAddress: EditText
     private lateinit var mRegButton: Button
     private var userType: Int = 0
 
@@ -33,6 +35,8 @@ class RegisterFragment : Fragment() {
 
         mUsername = view.findViewById(R.id.register_username)
         mPassword = view.findViewById(R.id.register_password)
+        mName = view.findViewById(R.id.register_name)
+        mAddress = view.findViewById(R.id.register_address)
         mRegButton = view.findViewById(R.id.register_button)
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("users")
@@ -55,7 +59,6 @@ class RegisterFragment : Fragment() {
         val radioButtonID = mRadioGroup.checkedRadioButtonId
         val radioButton = mRadioGroup.findViewById<View>(radioButtonID) as RadioButton
         val selectedText = radioButton.text as String
-
         // assign type for restaurant (1) or truck driver (2)
         userType = if (selectedText == "Restaurant") {
             1
@@ -85,7 +88,15 @@ class RegisterFragment : Fragment() {
             if (task.isSuccessful) {
                 // add new user to real time database
                 val fUser = mAuth!!.currentUser
-                val newUser = User(email, password, userType)
+
+                val newUser = if(userType == 1){
+                    val address = mAddress.text.toString()
+                    val name = mName.text.toString()
+                    User(email, password, userType, address, name)
+                } else {
+                    User(email, password, userType)
+                }
+
                 database.child(fUser!!.uid).setValue(newUser)
 
                 // navigate back to login
