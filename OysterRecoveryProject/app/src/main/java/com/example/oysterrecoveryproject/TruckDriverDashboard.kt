@@ -83,7 +83,7 @@ class TruckDriverDashboard : Fragment() {
 
         goToMapButt.setOnClickListener{
             if(userList.isEmpty()){
-                sendToMaps("4330 Hartwick Rd, College Park, MD, 20740")
+                sendToMaps("7649 S Library Ln, College Park, MD 20742")
             } else {
                 sendToMaps(currUser!!.address)
             }
@@ -98,7 +98,7 @@ class TruckDriverDashboard : Fragment() {
 
     @SuppressLint("SetTextI18n")
     fun setDropOff(){
-        val add = "4330 Hartwick Rd, College Park, MD, 20740"
+        val add = "7649 S Library Ln, College Park, MD 20742"
         resturantsLeft.text = "There are no more locations left! Go to drop off!"
         resturantDesc.text = "Name: Drop off\nAddress: $add"
     }
@@ -109,7 +109,7 @@ class TruckDriverDashboard : Fragment() {
             setDropOff()
         } else {
         currUser = userList.removeAt(0)
-        resturantsLeft.text = "There are " + userList.size + " left!"
+        resturantsLeft.text = "There are " + (userList.size + 1) + " left!"
         resturantDesc.text = "Name: " + currUser!!.name + "\n" + "Address: " + currUser!!.address
         }
     }
