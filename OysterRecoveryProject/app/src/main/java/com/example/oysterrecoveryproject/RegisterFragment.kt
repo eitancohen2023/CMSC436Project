@@ -79,6 +79,12 @@ class RegisterFragment : Fragment() {
             return
         }
 
+        // Eitan database, change drop off address
+        // Jackson update trucker UI
+        // Everyones got their own HTML Template items
+        // Mike to do video
+
+
         val x = mAuth!!.createUserWithEmailAndPassword(email, password)
         // Make sure register button is turned off for this user
         mRegButton.isEnabled = false
