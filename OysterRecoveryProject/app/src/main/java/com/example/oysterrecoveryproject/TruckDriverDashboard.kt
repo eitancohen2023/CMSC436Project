@@ -34,6 +34,7 @@ class TruckDriverDashboard : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_truck_driver_dashboard, container, false)
+        view.setBackgroundResource(com.google.android.material.R.color.cardview_dark_background)
 
         getNxtRestBttn = view.findViewById(R.id.nxtRestBttn) as Button
         resturantsLeft = view.findViewById(R.id.restaurantsLeft)

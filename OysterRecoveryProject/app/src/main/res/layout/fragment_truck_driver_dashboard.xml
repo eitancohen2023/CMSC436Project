@@ -7,7 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
+    <!-- Logout Button -->
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
@@ -17,34 +17,60 @@
         android:backgroundTint="@color/black"
         android:text="Log Out" />
 
+    <!-- Remaining locations -->
     <TextView
         android:id="@+id/restaurantsLeft"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_gravity="center|top"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp" />
+        android:layout_marginBottom="80dp"
+        android:textColor="@color/white"
+        android:textSize="50dp"/>
 
+    <TextView
+        android:id="@+id/nextLocationSubtitle"
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:text="Next Location:"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+
+    <!-- Description of next Restaurant -->
     <TextView
         android:id="@+id/resturantDesc"
         android:layout_width="wrap_content"
         android:layout_gravity="center|top"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="225dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/white"
+        android:textSize="26dp"
         />
-
-    <Button
-        android:id="@+id/nxtRestBttn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Get Next Location" />
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/goToMaps"
-        android:layout_gravity="center|top"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_height="wrap_content"
-        android:text="Go to Maps" />
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="130dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="Go to Maps"
+        android:textSize="30dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nxtRestBttn"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="130dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="Get Next Location"
+        android:textSize="30dp"
+        />
 
 </FrameLayout>
