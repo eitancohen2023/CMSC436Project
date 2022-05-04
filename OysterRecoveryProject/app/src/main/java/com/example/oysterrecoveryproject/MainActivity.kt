@@ -1,3 +1,6 @@
+// CMSC436 Final Project
+// By: Michael Orlando, Jackson Styer, Eitan Cohen
+
 package com.example.oysterrecoveryproject
 
 import android.content.Context
